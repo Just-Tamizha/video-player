@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamizha Video Player</title>
+    <!-- Attach CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelementplayer.min.css"
+        integrity="sha512-7D82/+kVzJhvYhr5k2+TueNVDAoZA4MAklU9vjupYEAnLx97qV3UFZQZgwaD6dPSAEEIiQXBDkK0Wh5BMTUFBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Attach Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        * {
+            font-family: "JetBrains Mono", serif;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="text-align: center; padding-top: 100px;">
+        <h2>Tamizha Video Player</h2>
+        <input type="text" size="40px" id="user-url" placeholder="Enter video URL">
+        <button type="button" onclick="usrBtn()" class="btn btn-dark">OK</button>
+    </div>
+
+    <br>
+
+    <!-- Video Player -->
+    <div style="text-align: center;" width="640" height="264" hidden id="video-container">
+        <video class="mejs__player" controls="controls" preload="auto" id="video-player">
+            <source type="video/mp4" id="video-url" src="" />
+        </video>
+    </div>
+
+    <script>
+        function usrBtn() {
+            var videoContainer = document.getElementById('video-container');
+            var url = document.getElementById('user-url').value;
+            if (!url) return;
+            videoContainer.hidden = false;
+            var video = document.getElementById('video-url');
+            video.src = url;
+            var player = document.getElementById('video-player');
+            player.load();
+        }
+    </script>
+
+
+
+    <!-- Attach Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelement.min.js"
+        integrity="sha512-jwd9xPVP121fHXMRhcvB9C9Y/TV69W7O82ffmf3gkGN/YJSe5e0ruKlfyC5R9399dGLPEMCrSPJHPtqZkhwOkA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
